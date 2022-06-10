@@ -1,0 +1,89 @@
+[build-system]
+	requires = [
+		"setuptools>=59.0",
+		"setuptools_scm[toml]",
+		"wheel",
+		"cython",
+	]
+	build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools_scm]
+	version_scheme = "python-simplified-semver"
+
+
+[tool.black]
+	line-length = 88
+	target-version = ['py37']
+	include = '\.pyi?$'
+	exclude = '''
+		(
+		)
+		'''
+
+[tool.isort]
+	profile = "black"
+	line_length = 88
+	force_single_line = true
+
+
+[tool.pyright]
+	include = ["src"]
+	exclude = [
+	    "**/__pycache__",
+	]
+	venv = ".venv"
+
+[tool.vulture]
+
+
+[tool.towncrier]
+	package = "atm"
+	directory = "docs/changelog"
+	filename = "CHANGELOG.rst"
+	title_format = "atm {version} ({project_date})"
+	template = "docs/changelog/_template.rst"
+
+
+
+[tool.pytest.ini_options]
+	testpaths = "tests"
+
+
+[tool.coverage]
+	[tool.coverage.run]
+		command_line = "-m pytest"
+		branch = true
+		omit = [
+			".venv/*",
+			"tests/*",
+		]
+
+	[tool.coverage.paths]
+		source = [
+			"src/",
+			"build/lib",
+		]
+
+	[tool.coverage.report]
+		exclude_lines = [
+			# Have to re-enable the standard pragma
+			"pragma: no cover",
+
+			# Don't complain about missing debug-only code:
+			"def __repr__",
+			"if self\\.debug",
+
+			# Don't complain if tests don't hit defensive assertion code:
+			"raise AssertionError",
+			"raise NotImplementedError",
+
+			# Don't complain if non-runnable code isn't run:
+			"if 0:",
+			"if __name__ == .__main__.:",
+		]
+		ignore_errors = true
+
+	[tool.coverage.html]
+		directory = "coverage_html_report"
+

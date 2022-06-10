@@ -1,0 +1,63 @@
+############
+# .gitignore
+############
+
+########################################
+# Project files
+
+var
+
+
+########################################
+# MacOS X Files
+
+.DS_Store
+.Trashes
+*.swp
+*.lock
+**/log/
+
+
+########################################
+# Specific files & directories
+
+*~
+.\#*
+.*.swp
+
+
+########################################
+# Editors
+
+*.sublime-workspace
+dagbok.sublime-workspace
+
+
+########################################
+# Virtual Env
+
+.venv
+VENV
+.envrc
+
+########################################
+# Python Patterns
+
+build/
+dist/
+.eggs
+*.egg-info
+*.pyc
+*.pyo
+*.log
+*.orig
+.ropeproject
+.pytest_cache
+sandbox
+SANDBOX
+.coverage
+htmlcov
+
+pyrightconfig.json
+
+
