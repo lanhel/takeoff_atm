@@ -13,6 +13,7 @@ Setup
 - Clone repository
 - Change directory to repository
 - `python -m venv .venv`
+- `. .venv/bin/activate`
 - `make install`
 - `atm`
 
